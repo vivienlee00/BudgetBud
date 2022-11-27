@@ -22,6 +22,10 @@ body {
     margin: 1vw;
 }
 
+h2 {
+    font-size: 3.2vh;
+}
+
 h1,
 h4 {
     margin: 15px 0 4px;
@@ -29,8 +33,9 @@ h4 {
 }
 
 h4 {
-    margin: 20px 0 4px;
+    margin: 0;
     font-weight: 400;
+    font-size: 2vh;
 }
 
 span {
@@ -52,19 +57,30 @@ span {
 
 form {
     width: 100%;
-    padding: 20px;
     /*
+    padding: 20px;
     background: #fff;
     box-shadow: 0 2px 5px #ccc;
     */
 }
 
 input {
-    width: calc(100% - 10px);
+    width: calc(100% - 12px);
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
     vertical-align: middle;
+    background-color: transparent;
+}
+
+#amount {
+    height: 7vh;
+    font-size: 5vh;
+}
+
+#description {
+    height: 3vh;
+    font-size: 2vh;
 }
 
 input:hover,
@@ -72,7 +88,7 @@ textarea:hover,
 select:hover {
     outline: none;
     border: 1px solid #095484;
-    background: #e6eef7;
+    background: #464646;
 }
 
 .title-block select,
@@ -85,6 +101,8 @@ select {
     border-radius: 3px;
     border: 1px solid #ccc;
     background: transparent;
+    height: 3vh;
+    font-size: 2vh;
 }
 
 select,
