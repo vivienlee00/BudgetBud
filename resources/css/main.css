@@ -1,6 +1,7 @@
 html,
 body {
     min-height: 100%;
+    background-color: rgb(43, 43, 43);
 }
 
 body,
@@ -8,12 +9,12 @@ div,
 form,
 input,
 select {
-    padding: 0;
+    padding: 1vw;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 14px;
-    color: #666;
+    color: #fff;
     line-height: 22px;
 }
 
@@ -48,8 +49,10 @@ span {
 form {
     width: 100%;
     padding: 20px;
+    /*
     background: #fff;
     box-shadow: 0 2px 5px #ccc;
+    */
 }
 
 input {
