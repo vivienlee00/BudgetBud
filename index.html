@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sheets API Quickstart</title>
+    <title>BudgetBud</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="resources/css/main.css">
   </head>
   <body>
-    <p>Sheets API Quickstart</p>
+    <p>BudgetBud 💸</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+
+    <form action="/">
+
+      <h4>Amount (USD $)<span>*</span></h4>
+      <input type="text" name="name" />
+
+      <h4>Purchase Description</h4>
+      <input type="text" name="name" />
+
+      <h4>Category</h4>
+      <select>
+        <option value="purchase" selected>Purchase</option>
+        <option value="investment">Investment</option>
+        <option value="newPaycheck">New Paycheck</option>
+      </select>
+
+      <h4>Subcategory</h4>
+      <select>
+        <option value="foodDrink" selected>Food/Drink</option>
+        <option value="purchase2">Purchase</option>
+        <option value="travel">Travel</option>
+        <option value="essentials">Essentials</option>
+        <option value="gift">Gift</option>
+      </select>
+
+      <h4>Subcategory</h4>
+      <select>
+        <option value="crypto" selected>Crypto</option>
+        <option value="cd">Certificate of Deposit</option>
+        <option value="voo">Vanguard ETF Stock</option>
+        <option value="rothIRA">Roth IRA</option>
+      </select>
+
+      <div class="btn-block">
+        <button type="submit" href="">Send Feedback</button>
+      </div>
+
+    </form>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -80,29 +119,6 @@
       }
 
       /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick() {
-        tokenClient.callback = async (resp) => {
-          if (resp.error !== undefined) {
-            throw (resp);
-          }
-          document.getElementById('signout_button').style.visibility = 'visible';
-          document.getElementById('authorize_button').innerText = 'Refresh';
-          await listMajors();
-        };
-
-        if (gapi.client.getToken() === null) {
-          // Prompt the user to select a Google Account and ask for consent to share their data
-          // when establishing a new session.
-          tokenClient.requestAccessToken({prompt: 'consent'});
-        } else {
-          // Skip display of account chooser and consent dialog for an existing session.
-          tokenClient.requestAccessToken({prompt: ''});
-        }
-      }
-
-      /**
        *  Sign out the user upon button click.
        */
       function handleSignoutClick() {
@@ -117,15 +133,39 @@
       }
 
       /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+       *  Sign in the user upon button click.
        */
-      async function listMajors() {
+       function handleAuthClick() {
+        tokenClient.callback = async (resp) => {
+          if (resp.error !== undefined) {
+            throw (resp);
+          }
+          document.getElementById('signout_button').style.visibility = 'visible';
+          document.getElementById('authorize_button').innerText = 'Refresh';
+          //await listItems();
+        };
+
+        if (gapi.client.getToken() === null) {
+          // Prompt the user to select a Google Account and ask for consent to share their data
+          // when establishing a new session.
+          tokenClient.requestAccessToken({prompt: 'consent'});
+        } else {
+          // Skip display of account chooser and consent dialog for an existing session.
+          tokenClient.requestAccessToken({prompt: ''});
+        }
+      }
+
+
+      /**
+       * Print the names and majors of students in a sample spreadsheet:
+       * https://docs.google.com/spreadsheets/d/1Tyygl2QvuIU9gjLumyp16sEqDy9ArBr0uUsAzSg0HN8/edit
+       */
+      async function listItems() {
         let response;
         try {
           // Fetch first 10 files
           response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+            spreadsheetId: '1Tyygl2QvuIU9gjLumyp16sEqDy9ArBr0uUsAzSg0HN8',
             range: 'Class Data!A2:E',
           });
         } catch (err) {
@@ -140,7 +180,7 @@
         // Flatten to string to display
         const output = range.values.reduce(
             (str, row) => `${str}${row[0]}, ${row[4]}\n`,
-            'Name, Major:\n');
+            'Item, Price:\n');
         document.getElementById('content').innerText = output;
       }
     </script>
