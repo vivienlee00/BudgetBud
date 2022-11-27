@@ -6,16 +6,18 @@
     <link rel="stylesheet" href="resources/css/main.css">
   </head>
   <body>
-    <h2>BudgetBud 💸</h2>
+    <div id="header">
+      <h2>BudgetBud 💸</h2>
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
-    <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+      <!--Add buttons to initiate auth sequence and sign out-->
+      <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+      <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>  
+    </div>
 
-    <form action="/">
+    <form id="itemForm" action="/">
 
       <h4>Amount (USD $)<span>*</span></h4>
-      <input type="text" name="name" id="amount"/>
+      $<input type="number" name="name" id="amount" value="0.00" step="0.01"/>
 
       <h4>Purchase Description</h4>
       <input type="text" name="name" id="description"/>
