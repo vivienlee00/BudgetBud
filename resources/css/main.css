@@ -1,7 +1,6 @@
 html,
 body {
     min-height: 100%;
-    background-color: rgb(43, 43, 43);
 }
 
 body,
@@ -9,13 +8,18 @@ div,
 form,
 input,
 select {
-    padding: 1vw;
+    padding: 0;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 14px;
     color: #fff;
     line-height: 22px;
+}
+
+body {
+    background-color: rgb(43, 43, 43);
+    margin: 1vw;
 }
 
 h1,
