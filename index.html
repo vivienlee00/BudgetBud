@@ -75,8 +75,8 @@
       let gapiInited = false;
       let gisInited = false;
 
-      document.getElementById('authorize_button').style.visibility = 'hidden';
-      document.getElementById('signout_button').style.visibility = 'hidden';
+      document.getElementById('authorize_button').style.display = 'none';
+      document.getElementById('signout_button').style.display = 'none';
 
       /**
        * Callback after api.js is loaded.
@@ -116,7 +116,7 @@
        */
       function maybeEnableButtons() {
         if (gapiInited && gisInited) {
-          document.getElementById('authorize_button').style.visibility = 'visible';
+          document.getElementById('authorize_button').style.display = 'inline-block';
         }
       }
 
@@ -130,7 +130,7 @@
           gapi.client.setToken('');
           document.getElementById('content').innerText = '';
           document.getElementById('authorize_button').innerText = 'Authorize';
-          document.getElementById('signout_button').style.visibility = 'hidden';
+          document.getElementById('signout_button').style.display = 'none';
         }
       }
 
@@ -142,7 +142,7 @@
           if (resp.error !== undefined) {
             throw (resp);
           }
-          document.getElementById('signout_button').style.visibility = 'visible';
+          document.getElementById('signout_button').style.display = 'inline-block';
           document.getElementById('authorize_button').innerText = 'Refresh';
           //await listItems();
         };
