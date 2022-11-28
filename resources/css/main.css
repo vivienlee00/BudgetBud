@@ -24,6 +24,9 @@ body {
 
 #header{
     display: inline-flex;
+    width: 98vw;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h2 {
@@ -199,7 +202,7 @@ button {
     border: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #095484;
     font-size: 16px;
     color: #fff;
@@ -208,6 +211,12 @@ button {
 
 button:hover {
     background-color: #0666a3;
+}
+
+#authorize_button {
+    width: 32vw;
+    height: 3.2vh;
+    font-size: 2vh;
 }
 
 #submit {
