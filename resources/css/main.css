@@ -23,7 +23,7 @@ body {
 }
 
 #header{
-    display: inline-block;
+    display: inline-flex;
 }
 
 h2 {
@@ -37,7 +37,6 @@ h4 {
 }
 
 h4 {
-    margin: 0;
     font-weight: 400;
     font-size: 2vh;
 }
@@ -69,7 +68,7 @@ form {
 }
 
 #itemForm {
-    margin-top: 5vh;
+    margin-bottom: 20vh;
 }
 
 input {
@@ -122,7 +121,7 @@ table {
 
 option {
     background: rgb(84, 84, 84);
-    font-size: 100%;
+    font-size: 3vh%;
 }
 
 .day-visited,
@@ -210,4 +209,10 @@ button {
 
 button:hover {
     background-color: #0666a3;
+}
+
+#submit {
+    width: 40vw;
+    height: 5vh;
+    font-size: 3vh;
 }
